@@ -11,24 +11,17 @@ function Memberfetch() {
     }).then((data)=>{
         console.log(data);
         memberList = data;
-        //localStorage.setItem('member1', JSON.stringify(memberList)); 
+        localStorage.setItem('member1', JSON.stringify(memberList)); 
     })     
 }
 
-Memberfetch();   
+  
 starts();
 
-//var user = [];
-var detetedItem = {}; 
-var currentElement = {};
-let newmemberList;
-localStorage.setItem('member2', JSON.stringify(selectionList));   
-
-
 function starts(){
-    if(localStorage.getItem('member1') == null){
+    if((JSON.parse(localStorage.getItem('member1'))) == null){
 
-        localStorage.setItem('member1', JSON.stringify(memberList));
+        Memberfetch(); 
         document.getElementById('counter').innerHTML=memberList.length; 
 
     }
@@ -40,9 +33,15 @@ function starts(){
     }
 }
 
+//var user = [];
+var detetedItem = {}; 
+var currentElement = {};
+let newmemberList;
+localStorage.setItem('member2', JSON.stringify(selectionList));   
+
 
 function renderList(){   
-      if(memberList.length<1){
+      if(memberList.length==0){
         document.getElementById('counter').innerHTML='Nothing to retrieve';
         return;
         
