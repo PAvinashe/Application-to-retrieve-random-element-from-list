@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        margin: 0;
+        background-color:rgb(248, 241, 231);
+    }
+        #containerNew{
+        width: 100%;
+        height: 100%;     
+        
+        color: black;
+        display: flex;  
+        flex-direction: column;         
+        justify-content: center;
+        align-items: center;
+        
+    }
+    #selected{
+        height: 100%;
+        width: 100%;
+        padding: 40px;
+        gap: 5px;
+        display: flex;  
+        flex-direction: column;          
+        justify-content: left;
+        
+    }
+    .member{
+        background-color: rgb(228, 201, 161);
+        height: 200px;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        
+    }
+    #homeBtn{
+        width: 100%;
+        height: 56px;
+        text-align: center;    
+        align-items: center;  
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: rgb(223, 211, 211) ;
+    }
+    #homeButton{
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+       
+    }
+    </style>
+</head>
+<body>
+    <div id="containerNew">
+        <div id="homeBtn">
+            <a id="homeButton" href="ListtoSelect.html">Home</a>
+         </div>
+        <div id="selected"></div>        
+    </div>
+    <script src="selection.js"></script>
+</body>
+</html>
+<!-- <script>
+
+
+
+    //localStorage.JSON.parse(localStorage.getItem("selectionList");
+    const _list = document.getElementById("selected");
+ 
+ function showList(item){
+    const listofMember = document.createElement("div");
+    listofMember.innerHTML = `<div class="member">
+                        <p>Name: <span>${item.name}</span><br>
+                        Description: <span>${item.description}</span><br>
+                        About: <span>${item.about}</span><br>
+                        Education:  <span>${item.education}</span><br>
+                        Experience: <span>${item.experience}</span><br>
+                        Mobile: <span>${item.mobile}</span><br>
+                        Email_Id: <span>${item.Email_Id}</span></p>
+                      </div>`;
+      return listofMember;
+ }
+ for(var i = 0; i < selectionList.length; i++){
+    currentElement = selectionList[i];
+
+    const newElement = showList(currentElement);
+    _list.appendChild(newElement);
+}  
+</script>
+ -->
