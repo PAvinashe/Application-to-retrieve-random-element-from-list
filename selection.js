@@ -13,15 +13,20 @@ function Memberfetch() {
         memberList = data;
         localStorage.setItem('member1', JSON.stringify(memberList)); 
     })     
-}
+} 
 
-  
-starts();
+
+//var user = [];
+var detetedItem = {}; 
+var currentElement = {};
+let newmemberList;
+//localStorage.setItem('member2', JSON.stringify(selectionList));   
 
 function starts(){
-    if((JSON.parse(localStorage.getItem('member1'))) == null){
+    if(JSON.parse(localStorage.getItem('member1')).length == 0){
 
         Memberfetch(); 
+        localStorage.setItem('member2', JSON.stringify(selectionList));   
         document.getElementById('counter').innerHTML=memberList.length; 
 
     }
@@ -29,22 +34,15 @@ function starts(){
         
         memberList = JSON.parse(localStorage.getItem('member1'));       
         document.getElementById('counter').innerHTML=memberList.length; 
-          
+        selectionList = JSON.parse(localStorage.getItem('member2'));
     }
 }
-
-//var user = [];
-var detetedItem = {}; 
-var currentElement = {};
-let newmemberList;
-localStorage.setItem('member2', JSON.stringify(selectionList));   
 
 
 function renderList(){   
       if(memberList.length==0){
         document.getElementById('counter').innerHTML='Nothing to retrieve';
-        return;
-        
+              
       }
       
     //   let newmemberList = localStorage.getItem('member1');
@@ -61,21 +59,12 @@ function renderList(){
                          
     detetedItem = memberList.splice(newItem,1);
     selectionList.push(detetedItem); 
-    if(memberList.length==0){
-        document.getElementById('counter').innerHTML='List is empty';
-        return;
-      }
-       else{
-        document.getElementById('counter').innerHTML=memberList.length;
-      }    
-           
+    document.getElementById('counter').innerHTML=memberList.length;      
     localStorage.setItem('member1', JSON.stringify(memberList));
-    localStorage.setItem('member2', JSON.stringify(selectionList));      
-   
-
+    localStorage.setItem('member2', JSON.stringify(selectionList));   
+      
     
-    
-      starts();
+      //starts();
   };
   //console.log(memberList);  
 
