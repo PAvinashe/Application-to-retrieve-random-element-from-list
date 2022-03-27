@@ -13,7 +13,7 @@ function Memberfetch() {
         memberList = data;
         localStorage.setItem('member1', JSON.stringify(memberList)); 
     })     
-} 
+}
 
 
 //var user = [];
@@ -23,7 +23,7 @@ let newmemberList;
 //localStorage.setItem('member2', JSON.stringify(selectionList));   
 
 function starts(){
-    if(JSON.parse(localStorage.getItem('member1')).length == 0){
+    if(JSON.parse(localStorage.getItem('member1')) ==  null || JSON.parse(localStorage.getItem('member1')).length == 0){
 
         Memberfetch(); 
         localStorage.setItem('member2', JSON.stringify(selectionList));   
