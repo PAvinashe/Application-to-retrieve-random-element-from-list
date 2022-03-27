@@ -58,8 +58,14 @@ function renderList(){
       document.getElementById('detail7').innerHTML= newList.id;                     
                          
     detetedItem = memberList.splice(newItem,1);
-    selectionList.push(detetedItem); 
-    document.getElementById('counter').innerHTML=memberList.length;      
+    selectionList.push(detetedItem);
+    if(memberList.length==0){
+        document.getElementById('counter').innerHTML='Nothing to retrieve';
+              
+      }
+      else{
+        document.getElementById('counter').innerHTML=memberList.length;
+      }               
     localStorage.setItem('member1', JSON.stringify(memberList));
     localStorage.setItem('member2', JSON.stringify(selectionList));   
       
