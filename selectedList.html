@@ -13,7 +13,7 @@
         #containerNew{
         width: 100%;
         height: 100%;     
-        
+        margin: 0;
         color: black;
         display: flex;  
         flex-direction: column;         
@@ -21,24 +21,7 @@
         align-items: center;
         
     }
-    #selected{
-        height: 100%;
-        width: 100%;
-        padding: 40px;
-        gap: 5px;
-        display: flex;  
-        flex-direction: column;          
-        justify-content: left;
-        
-    }
-    .member{
-        background-color: rgb(228, 201, 161);
-        height: 200px;
-        width: 100%;
-        text-align: left;
-        padding: 10px;
-        
-    }
+
     #homeBtn{
         width: 100%;
         height: 56px;
@@ -55,6 +38,44 @@
         font-weight: bold;
        
     }
+    #selected{
+        height: 100%;
+        width: 100%;             
+        display: flex;  
+        flex-direction: column;          
+        justify-content: center;
+        padding-top: 30px;
+        margin: 5px 10px 5px 10px;
+    }
+
+    #selected div{
+        width: 100%;
+        height: 200px;        
+        
+    }
+    .member{        
+        width: 100%;
+        height: 100%;
+        text-align: left; 
+        display: flex;    
+        flex-direction: row;
+        align-items: center;  
+        justify-content: space-between;        
+        background-color: rgb(228, 201, 161); 
+        
+    }
+
+    details{
+        width: 90%;
+        height: 100%;
+        padding-left: 50px;
+    }
+
+    #newBtn{
+        width: 10%;
+        padding-right: 30px;
+    }
+    
     </style>
 </head>
 <body>
@@ -62,36 +83,48 @@
         <div id="homeBtn">
             <a id="homeButton" href="ListtoSelect.html">Home</a>
          </div>
-        <div id="selected"></div>        
+        <div id="selected">
+
+        </div>        
     </div>
-    <script src="selection.js"></script>
+    <!--<script src="selection.js"></script>-->
 </body>
 </html>
-<!-- <script>
+<script>
 
+let new_list = document.getElementById("selected");
+selectionList = JSON.parse(localStorage.getItem('member2'));
+memberList = JSON.parse(localStorage.getItem('member1'));
+var detetedItemNew = {}; 
 
+ function showList(items){
+     let listofMember = document.createElement("div");
+     listofMember.innerHTML = `<div class="member">
+                         <p id="details">Name: <span>${items.name}</span><br>
+                         UserName: <span>${items.username}</span><br>
+                         Phone: <span>${items.phone}</span><br>
+                         Website: <span>${items.website}</span><br>
+                         Company: <span>${items.company}</span><br>
+                         Email: <span>${items.email}</span><br>
+                         Id: <span>${items.id}</span></p>
+                        <button class= "newBtn" onclick="deleteRecord()" >Delete</button>
+                       </div>`;
+       return listofMember;
+  } 
+  
+     
+     for(var i = 0; i < selectionList.length; i++){
+         let currentElement = selectionList[i];
+     
+         var newElement = showList(currentElement);
+         new_list.appendChild(newElement);
+     }  
 
-    //localStorage.JSON.parse(localStorage.getItem("selectionList");
-    const _list = document.getElementById("selected");
+     function deleteRecord(){
+        let listElement =
+        detetedItemNew = selectionList - selectionList[i];
+        memberList.push(detetedItemNew);
+
+     }
  
- function showList(item){
-    const listofMember = document.createElement("div");
-    listofMember.innerHTML = `<div class="member">
-                        <p>Name: <span>${item.name}</span><br>
-                        Description: <span>${item.description}</span><br>
-                        About: <span>${item.about}</span><br>
-                        Education:  <span>${item.education}</span><br>
-                        Experience: <span>${item.experience}</span><br>
-                        Mobile: <span>${item.mobile}</span><br>
-                        Email_Id: <span>${item.Email_Id}</span></p>
-                      </div>`;
-      return listofMember;
- }
- for(var i = 0; i < selectionList.length; i++){
-    currentElement = selectionList[i];
-
-    const newElement = showList(currentElement);
-    _list.appendChild(newElement);
-}  
 </script>
- -->

@@ -19,7 +19,6 @@ function Memberfetch() {
 //var user = [];
 var detetedItem = {}; 
 var currentElement = {};
-let newmemberList;
 //localStorage.setItem('member2', JSON.stringify(selectionList));   
 
 function starts(){
@@ -67,35 +66,29 @@ function renderList(){
         document.getElementById('counter').innerHTML=memberList.length;
       }               
     localStorage.setItem('member1', JSON.stringify(memberList));
-    localStorage.setItem('member2', JSON.stringify(selectionList));   
-      
-    
-      //starts();
-  };
-  //console.log(memberList);  
+    localStorage.setItem('member2', JSON.stringify(selectionList));          
+     
+  };  
 
-
-const new_list = document.getElementById("selected");
- 
+let new_list = document.getElementById("selected");
+selectionList = JSON.parse(localStorage.getItem('member2'));
 function showList(item){
-    const listofMember = document.createElement("div");
-    listofMember.innerHTML = `<div class="member">
+    let listofMember = document.createElement("div");
+    listofMember.appendChild = `<div class="member">
                         <p>Name: <span>${item.name}</span><br>
                         UserName: <span>${item.username}</span><br>
                         Phone: <span>${item.phone}</span><br>
-                        Website:  <span>${item.website}</span><br>
+                        Website: <span>${item.website}</span><br>
                         Company: <span>${item.company}</span><br>
                         Email: <span>${item.email}</span><br>
                         Id: <span>${item.id}</span></p>
                       </div>`;
       return listofMember;
- }
+ } 
  
     
-    let newMemList = localStorage.getItem('member2'); 
-    selectionList = JSON.parse(newMemList);
     for(var i = 0; i < selectionList.length; i++){
-        currentElement = selectionList[i];
+        let currentElement = selectionList[i];
     
         var newElement = showList(currentElement);
         new_list.appendChild(newElement);
