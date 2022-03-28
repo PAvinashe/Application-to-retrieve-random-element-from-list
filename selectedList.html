@@ -98,6 +98,7 @@ memberList = JSON.parse(localStorage.getItem('member1'));
 var detetedItemNew = {}; 
 
  function showList(items){
+     
      let listofMember = document.createElement("div");
      listofMember.innerHTML = `<div class="member">
                          <p id="details">Name: <span>${items.name}</span><br>
@@ -110,9 +111,10 @@ var detetedItemNew = {};
                         <button class= "newBtn" onclick="deleteRecord()" >Delete</button>
                        </div>`;
        return listofMember;
+    
   } 
   
-     
+    
      for(var i = 0; i < selectionList.length; i++){
          let currentElement = selectionList[i];
      
