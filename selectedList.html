@@ -100,6 +100,8 @@ var detetedItemNew = {};
  function showList(items){
      
      let listofMember = document.createElement("div");
+     let newDelItem = selectionList.indexOf(items);  
+     console.log("newDelItem", newDelItem);
      listofMember.innerHTML = `<div class="member">
                          <p id="details">Name: <span>${items.name}</span><br>
                          UserName: <span>${items.username}</span><br>
@@ -108,8 +110,9 @@ var detetedItemNew = {};
                          Company: <span>${items.company}</span><br>
                          Email: <span>${items.email}</span><br>
                          Id: <span>${items.id}</span></p>
-                        <button class= "newBtn" onclick="deleteRecord()" >Delete</button>
+                        <button class= "newBtn" onclick="deleteRecord(${newDelItem});">Delete</button>
                        </div>`;
+
        return listofMember;
     
   } 
@@ -120,13 +123,16 @@ var detetedItemNew = {};
      
          var newElement = showList(currentElement);
          new_list.appendChild(newElement);
-     }  
-
-     function deleteRecord(){
-        let listElement =
-        detetedItemNew = selectionList - selectionList[i];
-        memberList.push(detetedItemNew);
-
+     } 
+     
+     function deleteRecord(item2){        
+        let detetedItemNew = selectionList.splice(item2, 1); 
+        memberList.push(detetedItemNew[0]);
+        console.log("detetedItemNew", detetedItemNew);
+        localStorage.setItem("member1", JSON.stringify(memberList));
+        localStorage.setItem("member2", JSON.stringify(selectionList));
      }
+
+     
  
 </script>
